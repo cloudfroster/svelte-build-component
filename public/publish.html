@@ -1,0 +1,109 @@
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<link rel="dns-prefetch" href="//s3.pstatp.com">
+<link rel="dns-prefetch" href="//p1-tt.byteimg.com">
+<link rel="dns-prefetch" href="//p3-tt.byteimg.com">
+<link rel="dns-prefetch" href="//p9-tt.byteimg.com">
+<link rel="dns-prefetch" href="//clue.toutiao.com">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"/>
+<link rel="shortcut icon" href="//sf3-ttcdn-tos.pstatp.com/obj/ad-tetris-site/favicon.ico">
+<script>
+!function(e){var t=375,n=1,i=0;function o(t){var n=2;!function i(){if(e.Raven&&e.Raven.captureMessage)e.Raven.captureMessage(t,{level:"error"});else{if(n<=0)return;n--,setTimeout(function(){i()},2e3)}}()}function d(t){var d=function(t){var n=0,i=e.document.documentElement,d=e.document.body,u=[{key:"boundingWidth",value:i&&i.getBoundingClientRect&&i.getBoundingClientRect().width},{key:"screenWidth",value:e.screen.width}];d&&u.splice(1,0,{key:"clienWdith",value:d&&d.clientWidth},{key:"offsetWidth",value:d&&d.offsetWidth});for(var c=0;c<u.length;c++){var r=u[c].key,a=u[c].value||0;if(0!==a){n=a;break}o("flexible_"+t+"_"+r+"_0")}return n}(t)/10/n;d!==i&&(i=d,e.document.documentElement.style.fontSize=i+"px"),0===i&&o("flexible_"+t+"_html_rem_0")}function u(){e.document.body&&(e.document.body.style.fontSize=14/(t/10)+"rem",n=function(){var t=e.document.createElement("div");t.style.width="1rem",e.document.body.appendChild(t);var n=t.clientWidth/i;return e.document.body.removeChild(t),n>1.05||n<.95?n:1}())}!function(){d("init"),"complete"===e.document.readyState?(u(),d("domReady")):e.document.addEventListener("DOMContentLoaded",function(){u(),d("domReady")},!1);var t=null;e.addEventListener("resize",function(){clearTimeout(t),t=setTimeout(function(){d("resize")},300)},!1)}()}(window);
+</script>
+<script src="https://s3.pstatp.com/inapp/toutiao.js"></script>
+
+    <!-- CSR-LINKS  -->
+
+<style>
+@font-face {
+    font-family: "ledfont";
+    src: url("https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.eot"); /* IE9 */
+    src: url("https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.woff") format("woff"), /* chrome、firefox */
+    url("https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.svg#uxfonteditor") format("svg"); /* iOS 4.1- */
+}
+</style>
+
+<!-- << SCM Version >> -->
+<script>
+window.__renderType = 'CSR';
+window.__data = {{.PageData}};
+// pageAutomationData 存疑
+
+// 转化组件需要
+window.__info = {
+    pageId: '{{.pageID}}',
+    {{with .site}}
+        siteId: '{{.ID}}',
+        siteType: '{{.SiteType}}',
+        advId: '{{.AdvertiserID}}',
+        title: '{{.Title}}',
+        description: '{{.Description}}',
+        thumb: '{{.Thumb}}',
+        name: '{{.Name}}',
+        topbarType: '{{.TopbarType}}'
+    {{end}}
+};
+// 顶部悬浮
+if(window.__info && window.__info.topbarType && window.ToutiaoJSBridge) {
+    if(['120'].indexOf(window.__info.siteType) === -1) {
+        var topbarType = parseInt(window.__info.topbarType, 10);
+        if (topbarType === 2 || topbarType === 3) {
+            window.ToutiaoJSBridge.call('updateNavBar', {
+                topbar_type: 3
+            });
+        }
+    }
+}
+if (window.__data.hasOwnProperty('meta') && window.__data.meta.fontsUrl) {
+    var head = document.getElementsByTagName('head').item(0);
+    var styleTag = document.createElement('link');
+    styleTag.setAttribute('rel', 'stylesheet');
+    styleTag.setAttribute('href', window.__data.meta.fontsUrl);
+    head.appendChild(styleTag);
+}
+</script>
+<div id="app">
+    <!-- SSR-BODY -->
+</div>
+
+<!-- << Clue Fatal >> -->
+<script>
+var comps=getComps(window.__data);function getComps(data){var _comps={};for(var bid in data)if(16===bid.length&&data.hasOwnProperty(bid)&&data[bid]){var brickName=data[bid].name;brickName&&(_comps[brickName]=_comps[brickName]?_comps[brickName].concat([data[bid]]):[data[bid]])}return _comps}var clueAppMaps={XrConsult:["consult"],XrForm:["normalForm"],XrLottery:["lottery"],XrLotteryNew:["activity","lottery2","normalForm"],XrMultiline:["phone","consult"],XrPoll:["poll"]};window.Clue.Loader&&Object.keys(comps).map(function(name){return clueAppMaps[name]?Promise.all(clueAppMaps[name].map(function(app){window.Clue.Loader.load(app)})):Promise.resolve()});
+
+(function() {
+    // Slardar
+    var slardarInstance;
+    window.ToutiaoJSBridge && window.ToutiaoJSBridge.call('appInfo', {}, (data = {}) => {
+        !function(e,n){var t=n.createElement("script");t.async=1,t.src="https://s3.pstatp.com/bytecom/tetris/lm.720576a5.js";var i=n.getElementsByTagName("script")[0];i.parentNode.insertBefore(t,i),e.__lm=function(n){e.__lm=n}}(window,document);
+        window.__lm({cdnDomainNames:['p1-tt.byteimg.com','p3-tt.byteimg.com','p6-tt.byteimg.com','p9-tt.byteimg.com']});
+
+        (!window.Slardar || !window.Slardar.createInstance) && (function(i,s,o,g,r,a,m){i["SlardarMonitorObject"]=r;i[r]||(i[r]=function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].createInstance=function(){var n={q:[]};n.i=function(){(n.q=n.q||[]).push(arguments)};(i[r].i=i[r].i||[]).push(n);var p=function(){n.i.apply(null,arguments)};p.n=n;return p});i[r].l=1*new Date();a=s.createElement(o);m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://i.snssdk.com/slardar/sdk.js?bid=chengzijianzhan","Slardar");
+        slardarInstance = window.Slardar.createInstance();
+        slardarInstance('config', {
+            bid: 'chengzijianzhan',
+            ignoreAjax: ['patrol.snssdk.com','mcs.snssdk.com','restapi.amap.com','i.snssdk.com','isub.snssdk.com','www.toutiaopage.com','analytics.snssdk.com']
+        });
+    });
+
+    // Sentry
+    (!window.SentryLoad) && (function(i,e,j,f,d,c,b){i[d]=function(a){(i[d].q=i[d].q||[]).push(a)};c=e.createElement(j);b=e.getElementsByTagName(j)[0];c.async=1;c.setAttribute("crossorigin","anonymous");c.src=f;c.onload=function(a){a=i[d].q;i[d]=function(g){g.apply(null)};a&&a.forEach(function(g){g.apply(null)})};b.parentNode.insertBefore(c,b)})(window,document,"script","https://sf1-ttcdn-tos.pstatp.com/obj/ttfe/sentry/5.6.1/bundle.min.js","SentryLoad");
+    var a=function(){var b=slardarInstance.n?slardarInstance.n.i:slardarInstance;if(b.shared&&b.shared.transport&&typeof b.shared.transport.postEvent === 'function'){a = b.shared.transport.postEvent.bind(b.shared.transport);a.apply(null, arguments);}};
+    window.SentryLoad(function () {
+        var client = new Sentry.BrowserClient({
+            defaultIntegrations: Sentry.defaultIntegrations,
+            dsn: 'https://key@i.snssdk.com/log/sentry/v2/slardar',
+            beforeSend: function (event) {
+            a({ ev_type: 'jserr', sentry: event });
+            return null;
+            },
+        });
+        new Sentry.getCurrentHub().bindClient(client);
+    });
+})();
+</script>
+
+<!-- CSR-SCRIPTS  -->
+

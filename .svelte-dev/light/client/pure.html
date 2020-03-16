@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"
+        />
+        <link rel="icon" href="//sf3-ttcdn-tos.pstatp.com/obj/ad-tetris-site/favicon.ico" />
+        <link rel="shortcut icon" href="//sf3-ttcdn-tos.pstatp.com/obj/ad-tetris-site/favicon.ico" />
+
+        
+
+        <script>
+            !(function(e) {
+                var t = 375,
+                    n = 1,
+                    i = 0;
+                function o(t) {
+                    var n = 2;
+                    !(function i() {
+                        if (e.Raven && e.Raven.captureMessage) e.Raven.captureMessage(t, { level: 'error' });
+                        else {
+                            if (n <= 0) return;
+                            n--,
+                                setTimeout(function() {
+                                    i();
+                                }, 2e3);
+                        }
+                    })();
+                }
+                function d(t) {
+                    var d =
+                        (function(t) {
+                            var n = 0,
+                                i = e.document.documentElement,
+                                d = e.document.body,
+                                u = [
+                                    {
+                                        key: 'boundingWidth',
+                                        value: i && i.getBoundingClientRect && i.getBoundingClientRect().width
+                                    },
+                                    { key: 'screenWidth', value: e.screen.width }
+                                ];
+                            d &&
+                                u.splice(
+                                    1,
+                                    0,
+                                    { key: 'clienWdith', value: d && d.clientWidth },
+                                    { key: 'offsetWidth', value: d && d.offsetWidth }
+                                );
+                            for (var c = 0; c < u.length; c++) {
+                                var r = u[c].key,
+                                    a = u[c].value || 0;
+                                if (0 !== a) {
+                                    n = a;
+                                    break;
+                                }
+                                o('flexible_' + t + '_' + r + '_0');
+                            }
+                            return n;
+                        })(t) /
+                        10 /
+                        n;
+                    d !== i && ((i = d), (e.document.documentElement.style.fontSize = i + 'px')),
+                        0 === i && o('flexible_' + t + '_html_rem_0');
+                }
+                function u() {
+                    e.document.body &&
+                        ((e.document.body.style.fontSize = 14 / (t / 10) + 'rem'),
+                        (n = (function() {
+                            var t = e.document.createElement('div');
+                            (t.style.width = '1rem'), e.document.body.appendChild(t);
+                            var n = t.clientWidth / i;
+                            return e.document.body.removeChild(t), n > 1.05 || n < 0.95 ? n : 1;
+                        })()));
+                }
+                !(function() {
+                    d('init'),
+                        'complete' === e.document.readyState
+                            ? (u(), d('domReady'))
+                            : e.document.addEventListener(
+                                  'DOMContentLoaded',
+                                  function() {
+                                      u(), d('domReady');
+                                  },
+                                  !1
+                              );
+                    var t = null;
+                    e.addEventListener(
+                        'resize',
+                        function() {
+                            clearTimeout(t),
+                                (t = setTimeout(function() {
+                                    d('resize');
+                                }, 300));
+                        },
+                        !1
+                    );
+                })();
+            })(window);
+        </script>
+
+        <title>轻落地页</title>
+        <script id="__RENDERTYPE__"></script>
+        <script>
+            window.__closeLazyLoading = true;
+            window.__data = {{{ pageData }}};
+
+            if (window.__data.hasOwnProperty('meta') && window.__data.meta.fontsUrl) {
+                var head = document.getElementsByTagName('head').item(0);
+                var styleTag = document.createElement('link');
+                styleTag.setAttribute('rel', 'stylesheet');
+                styleTag.setAttribute('href', window.__data.meta.fontsUrl);
+                head.appendChild(styleTag);
+            }
+        </script>
+        <script>
+            (function() {
+                _tt_config = true;
+                _page_type = 1;
+                var ta = document.createElement('script');
+                ta.type = 'text/javascript';
+                ta.async = true;
+                ta.src = 'https://s3.pstatp.com/bytecom/resource/track_log/src/toutiao-track-log.js?v=1';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ta, s);
+            })();
+        </script>
+
+        <script id="inject" src="https://sf3-ttcdn-tos.pstatp.com/obj/ad-tetris-site/game/lib/inject.1583551365492.js">
+        </script>
+
+        <style>
+            @font-face {
+                font-family: 'ledfont';
+                src: url('https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.eot'); /* IE9 */
+                src: url('https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.eot?#iefix') format('embedded-opentype'),
+                    /* IE6-IE8 */ url('https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.woff') format('woff'),
+                    /* chrome、firefox */ url('https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.ttf')
+                        format('truetype'),
+                    /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+                        url('https://p3-tt.byteimg.com/obj/ad-tetris-site/ledfont.svg#uxfonteditor') format('svg'); /* iOS 4.1- */
+            }
+            body {
+                height: '105%';
+            }
+        </style>
+    </head>
+    <body>
+        <!-- << SCM Version >> -->
+        <div id="app">
+            <!-- SSR-BODY -->
+        </div>
+
+        <script src="_rollup:plugin-multi-entry:entry-point.js" crossorigin="anonymous"  type="module"></script>
+
+        <!-- << Clue Fatal >> -->
+    </body>
+</html>

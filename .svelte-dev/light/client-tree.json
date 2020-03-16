@@ -1,0 +1,8 @@
+{
+  "_rollup:plugin-multi-entry:entry-point.js": {
+    "isEntry": true
+  },
+  "pure.html": {
+    "isAsset": true
+  }
+}

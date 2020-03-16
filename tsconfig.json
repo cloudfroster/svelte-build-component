@@ -1,0 +1,41 @@
+{
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.svelte", "src/components/loadable/client-loader.js", "src/components/loadable/server-loader.js", "src/components/loadable/client-loader.js", "src/components/loadable/index.js"
+    ],
+    "exclude": [
+        "node_modules/*"
+    ],
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "target": "ESNEXT",
+        "module": "ESNEXT",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "importHelpers": true,
+        "strict": false,
+        "noImplicitAny": false,
+        "noImplicitThis": false,
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "types": [
+            "svelte",
+            "@types/node"
+        ],
+        "lib": [
+            "esnext",
+            "dom",
+            "dom.iterable"
+        ],
+        "experimentalDecorators": true,
+        "strictPropertyInitialization": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+    "paths": {
+        "@/*": [ "src/*" ],
+        "@ssr_build/*": [".svelte/*"],
+        "@static/*": [".static/*"]
+    }
+}
