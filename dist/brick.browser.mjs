@@ -1,3 +1,5 @@
+import { onMount } from 'svelte';
+
 function noop() { }
 function run(fn) {
     return fn();
@@ -35,6 +37,12 @@ function text(data) {
 }
 function space() {
     return text(' ');
+}
+function attr(node, attribute, value) {
+    if (value == null)
+        node.removeAttribute(attribute);
+    else if (node.getAttribute(attribute) !== value)
+        node.setAttribute(attribute, value);
 }
 function children(element) {
     return Array.from(element.childNodes);
@@ -75,14 +83,6 @@ function claim_space(nodes) {
 let current_component;
 function set_current_component(component) {
     current_component = component;
-}
-function get_current_component() {
-    if (!current_component)
-        throw new Error(`Function called outside component initialization`);
-    return current_component;
-}
-function onMount(fn) {
-    get_current_component().$$.on_mount.push(fn);
 }
 
 const dirty_components = [];
@@ -301,12 +301,17 @@ function create_fragment(ctx) {
 		c() {
 			div = element("div");
 			t = text("hello C");
+			this.h();
 		},
 		l(nodes) {
-			div = claim_element(nodes, "DIV", {});
+			div = claim_element(nodes, "DIV", { ref: true });
 			var div_nodes = children(div);
 			t = claim_text(div_nodes, "hello C");
 			div_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(div, "ref", "");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -322,7 +327,10 @@ function create_fragment(ctx) {
 }
 
 function instance($$self) {
+
 	onMount(() => {
+		let ref;
+		console.log(ref);
 		console.log("mount app C");
 	});
 

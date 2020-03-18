@@ -15,12 +15,18 @@ export default {
       format: 'es',
       sourcemap: true,
       name,
+      globals: {
+        svelte: 'svelte'
+      }
     },
     {
       file: './dist/brick.browser.js',
       format: 'umd',
       sourcemap: true,
       name,
+      globals: {
+        svelte: 'svelte'
+      }
     },
   ],
   plugins: [
@@ -33,6 +39,7 @@ export default {
     resolve(),
     commonjs()
   ],
+  external: ['svelte'],
   watch: {
     clearScreen: false,
   }

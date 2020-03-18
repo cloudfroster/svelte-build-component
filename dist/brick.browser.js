@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = global || self, global['@ultra/app'] = factory());
-}(this, (function () { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('svelte')) :
+    typeof define === 'function' && define.amd ? define(['svelte'], factory) :
+    (global = global || self, global['@ultra/app'] = factory(global.svelte));
+}(this, (function (svelte) { 'use strict';
 
     function noop() { }
     function run(fn) {
@@ -41,6 +41,12 @@
     }
     function space() {
         return text(' ');
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
     }
     function children(element) {
         return Array.from(element.childNodes);
@@ -81,14 +87,6 @@
     let current_component;
     function set_current_component(component) {
         current_component = component;
-    }
-    function get_current_component() {
-        if (!current_component)
-            throw new Error(`Function called outside component initialization`);
-        return current_component;
-    }
-    function onMount(fn) {
-        get_current_component().$$.on_mount.push(fn);
     }
 
     const dirty_components = [];
@@ -307,12 +305,17 @@
     		c() {
     			div = element("div");
     			t = text("hello C");
+    			this.h();
     		},
     		l(nodes) {
-    			div = claim_element(nodes, "DIV", {});
+    			div = claim_element(nodes, "DIV", { ref: true });
     			var div_nodes = children(div);
     			t = claim_text(div_nodes, "hello C");
     			div_nodes.forEach(detach);
+    			this.h();
+    		},
+    		h() {
+    			attr(div, "ref", "");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -328,7 +331,10 @@
     }
 
     function instance($$self) {
-    	onMount(() => {
+
+    	svelte.onMount(() => {
+    		let ref;
+    		console.log(ref);
     		console.log("mount app C");
     	});
 
@@ -392,7 +398,7 @@
     }
 
     function instance$1($$self) {
-    	onMount(() => {
+    	svelte.onMount(() => {
     		console.log("mount app B");
     	});
 
